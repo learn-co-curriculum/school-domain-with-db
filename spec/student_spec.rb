@@ -2,41 +2,45 @@ require_relative 'spec_helper'
 
 describe Student do
 
-  describe 'attributes' do 
-    it 'has an id, name, tagline, github, twitter, blog_url, image_url, biography' do
-      attributes = {
-        :id => 1,
-        :name => "Avi",
-        :tagline => "Teacher",
-        :github => "aviflombaum",
-        :twitter => "aviflombaum",
-        :blog_url => "http://aviflombaum.com",
-        :image_url => "http://aviflombaum.com/picture.jpg",
-        :biography => "Programming is my favorite thing in the whole wide world."
-      }
+  context "attributes" do
+    describe "instance" do
+      it " has an id, name, tagline, github username, twitter handle, blog_url, image_url, biography" do
 
-      avi = Student.new
-      avi.id = attributes[:id]
-      avi.name = attributes[:name]
-      avi.tagline = attributes[:tagline]
-      avi.github = attributes[:github]
-      avi.twitter = attributes[:twitter]
-      avi.blog_url = attributes[:blog_url]
-      avi.image_url = attributes[:image_url]
-      avi.biography = attributes[:biography]
+        attributes = {
+          :id => 1,
+          :name => "Avi",
+          :tagline => "Teacher",
+          :github => "aviflombaum",
+          :twitter => "aviflombaum",
+          :blog_url => "http://aviflombaum.com",
+          :image_url => "http://aviflombaum.com/picture.jpg",
+          :biography => "Programming is my favorite thing in the whole wide world."
+        }
 
-      expect(avi.id).to eq(attributes[:id])
-      expect(avi.name).to eq(attributes[:name])
-      expect(avi.tagline).to eq(attributes[:tagline])
-      expect(avi.github).to eq(attributes[:github])
-      expect(avi.twitter).to eq(attributes[:twitter])
-      expect(avi.blog_url).to eq(attributes[:blog_url])
-      expect(avi.image_url).to eq(attributes[:image_url])
-      expect(avi.biography).to eq(attributes[:biography])
+        avi = Student.new
+        avi.id = attributes[:id]
+        avi.name = attributes[:name]
+        avi.tagline = attributes[:tagline]
+        avi.github = attributes[:github]
+        avi.twitter = attributes[:twitter]
+        avi.blog_url = attributes[:blog_url]
+        avi.image_url = attributes[:image_url]
+        avi.biography = attributes[:biography]
+
+        expect(avi.id).to eq(attributes[:id])
+        expect(avi.name).to eq(attributes[:name])
+        expect(avi.tagline).to eq(attributes[:tagline])
+        expect(avi.github).to eq(attributes[:github])
+        expect(avi.twitter).to eq(attributes[:twitter])
+        expect(avi.blog_url).to eq(attributes[:blog_url])
+        expect(avi.image_url).to eq(attributes[:image_url])
+        expect(avi.biography).to eq(attributes[:biography])
+
+      end
     end
   end
 
-  describe '::create_table' do
+  describe '.create_table' do
     it 'creates a student table' do
       DB[:conn].execute('DROP TABLE IF EXISTS students')
       Student.create_table
@@ -161,7 +165,7 @@ describe Student do
 
       avi.name = "Bob"
       expect(avi).to receive(:update)
-      avi.save      
+      avi.save
     end
   end
 end
