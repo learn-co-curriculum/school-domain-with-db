@@ -1,4 +1,4 @@
-# Basic Student ORM
+# Basic Student 0RM
 
 ## Objectives
 * Understand what an Object Relational Mapper(ORM) is
