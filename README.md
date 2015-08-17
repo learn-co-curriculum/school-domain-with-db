@@ -10,19 +10,19 @@ This lab involves building a basic ORM for a Student object.  The `Student` clas
 We begin by briefly discussing what an ORM is and how the `environment.rb` file in our project's config directory establishes a connection to our application's database.
 
 - **what is an ORM?**
-  An ORM is an Object Relational Mapper. It is basically a class that acts  as an analogy for how instances of Objects in an object-oriented program  correspond to rows in a database; meaning that it wraps the functionality of the   database into our class.
+  An ORM is an Object Relational Mapper. It is basically a class that acts  as an analogy for how instances of Objects in an object-oriented program  correspond to rows in a database; meaning that it wraps the functionality of the database into our class.
 
 - **Environment**
-  Our environment is going to be a single point of requires and loads.  It is also going to define a constant, `DB`, whose sole responsibility is setting up and maintainig connection to our application's database.
+  Our environment is going to be a single point of requires and loads.  It is also going to define a constant, `DB`, whose sole responsibility is setting up and maintaining connection to our application's database.
    - `DB = {:conn => SQLite3::Database.new("db/students.db")}`
    `DB` is set equal to a hash, which has a single key, `:conn`. The key, `:conn`,  will have a value of a connection to a sqlite3 database in the db directory.
 
-   		However, in our spec_helper, our  testing environment, we're going to redefine the value of that key (not of  the constant though) to point to an in-memory database. This will allow our   tests to run in   isolation of our production database. Whenever we want to   refer to the  applications connection to the database, we will simply rely on   `DB[:conn]`.
+   		However, in our spec_helper, our  testing environment, we're going to redefine the value of that key (not of the constant though) to point to an in-memory database. This will allow our tests to run in isolation of our production database. Whenever we want to refer to the  applications connection to the database, we will simply rely on   `DB[:conn]`.
 
 ## Solving The Lab: The Spec Suite
 -  **RSpec Test 1: `#attributes`**
 
-  The first test is concerned soley with making sure that our students have all the required attributes and that they are readable and writeable.
+  The first test is concerned solely with making sure that our students have all the required attributes and that they are readable and writeable.
 
 -  **RSpec Test 2: `::create_table`**
   Your task  here is to define a class method on Student that will execute  the correct SQL to create a students table.
