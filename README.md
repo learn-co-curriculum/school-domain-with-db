@@ -85,16 +85,16 @@ This method will drop the students table from the database.
 
 - **RSpec Test 5: `#save`**
 
-  This spec ensures that given an instance of a student, simply calling save  will trigger the correct operation. To implement this, you will have to   figure out a way for an instance to determine whether it has been persisted   into the DB.
+  This spec ensures that given an instance of a student, simply calling save will trigger the correct operation. To implement this, you will have to figure out a way for an instance to determine whether it has been persisted into the DB.
 
-  In the first test we create an instance, specify, since it has never been   saved before, that the instance will receive a method call to `insert`.
+  In the first test we create an instance, specify, since it has never been saved before, that the instance will receive a method call to `insert`.
 
-  In the next test, we create an instane, save it, change it's name, and then   specify that a call to the save method should trigger an `update`.
+  In the next test, we create an instance, save it, change it's name, and then specify that a call to the save method should trigger an `update`.
 
   ## BONUSES
 
   * **Attributes**
-    How can this be refactored, both in the test and within the Student     class? There is a powerful pattern here, see if you can see it.
+    How can this be refactored, both in the test and within the Student   class? There is a powerful pattern here, see if you can see it.
 
   * **`.create_table` and `.drop_table`**
     1. Think about removing the duplication from these tests.
@@ -124,4 +124,8 @@ This method will drop the students table from the database.
     - Build a `find_by` method for every attribute, `find_by_id`, `find_by_github`, etc. Deal with multiple matches
 
 ## Resources
+
 * [Wikipedia](http://en.wikipedia.org/) - [Object-Relational Mapping](http://en.wikipedia.org/wiki/Object-relational_mapping)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/school-domain-with-db'>School Domain With Db</a> on Learn.co and start learning to code for free.</p>
+
